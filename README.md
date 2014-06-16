@@ -16,15 +16,17 @@ It strips tags, turns single and double quotes into entities, then optionally li
 
 ## Parameters
 
+The following tag parameters are available.
+
 ### limit (optional)
 
-```limit="200"```
+`limit="200"`
 
 The number of characters to limit the output to (keeps whole words).
 
 ### end_char (optional)
 
-```end_char="&#8230;"```
+`end_char="&#8230;"`
 
 A terminating character (or characters) to append to the string. The limit parameter takes this into consideration, so your final string will still
 be within the bounds of your specified limit.

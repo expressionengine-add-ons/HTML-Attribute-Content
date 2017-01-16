@@ -13,7 +13,7 @@ HTML Attribute Content takes a string and preps it for use inside HTML tag attri
 It strips tags, turns single and double quotes into entities, then optionally limits to a fixed number of characters (retaining whole words), and appends a terminating character.
 
 ```
-{exp:html_attribute_content limit="200" end_char="&#8230;"}
+{exp:html_attribute_content limit='200' end_char='&#8230;''}
 	content to make safe for use in a tag parameter
 {/exp:html_attribute_content}
 ```
@@ -22,22 +22,32 @@ It strips tags, turns single and double quotes into entities, then optionally li
 
 ##### limit (optional)
 
-`limit="200"`
+`limit='200'`
 
 The number of characters to limit the output to (keeps whole words).
 
+##### double_encode (optional, default='yes')
+
+`double_encode='no'`
+
+yes/no. Whether or not to double-encode character entities.
+
 ##### end_char (optional)
 
-`end_char="&#8230;"`
+`end_char='&#8230;'`
 
 A terminating character (or characters) to append to the string. The limit parameter takes this into consideration, so your final string will still
 be within the bounds of your specified limit.
 
 ## Change Log
 
+### 2.1
+
+- added `double_encode=` parameter to optionally disable double-encoding of character entities
+
 ### 2.0
 
-- Updated plugin to be 2.0 compatible- Updated plugin to be 3.0 compatible
+- Updated plugin to be 3.0 compatible
 
 ### 1.0
 

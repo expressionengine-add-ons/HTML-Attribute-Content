@@ -48,6 +48,7 @@ class Html_attribute_content {
 	public function __construct()
 	{
 		$str = ee()->TMPL->tagdata;
+		$double_encode = get_bool_from_string(ee()->TMPL->fetch_param('double_encode', 'yes'));
 
 		// syntax highlighted code will be one long "word" and not summarizable
 
@@ -57,7 +58,7 @@ class Html_attribute_content {
 		}
 
 		$str = strip_tags($str);
-		$str = htmlspecialchars($str, ENT_QUOTES);
+		$str = htmlspecialchars($str, ENT_QUOTES, 'UTF-8', $double_encode);
 
 		if (($limit = ee()->TMPL->fetch_param('limit')) !== FALSE)
 		{

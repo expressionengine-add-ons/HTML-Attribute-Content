@@ -13,7 +13,7 @@ HTML Attribute Content takes a string and preps it for use inside HTML tag attri
 It strips tags, turns single and double quotes into entities, then optionally limits to a fixed number of characters (retaining whole words), and appends a terminating character.
 
 ```
-{exp:html_attribute_content limit='200' end_char='&#8230;''}
+{exp:html_attribute_content limit='200' end_char='&#8230;'}
 	content to make safe for use in a tag parameter
 {/exp:html_attribute_content}
 ```
@@ -40,6 +40,10 @@ A terminating character (or characters) to append to the string. The limit param
 be within the bounds of your specified limit.
 
 ## Change Log
+
+### 2.1.1
+
+- Fixed a typo in the README
 
 ### 2.1
 

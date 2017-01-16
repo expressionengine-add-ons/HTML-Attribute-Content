@@ -10,7 +10,7 @@ install:
   - composer install
 
 script:
-  - gravatar/vendor/bin/parallel-lint --exclude gravatar/vendor .
+  - html_attribute_content/vendor/bin/parallel-lint --exclude html_attribute_content/vendor .
 
 before_deploy:
   - composer install --no-dev

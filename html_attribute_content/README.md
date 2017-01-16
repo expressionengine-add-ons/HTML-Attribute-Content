@@ -41,6 +41,10 @@ be within the bounds of your specified limit.
 
 ## Change Log
 
+### 2.1.2
+
+- Cleaned up GitHub release download package
+
 ### 2.1.1
 
 - Fixed a typo in the README

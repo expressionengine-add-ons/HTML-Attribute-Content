@@ -13,7 +13,6 @@ script:
   - html_attribute_content/vendor/bin/parallel-lint --exclude html_attribute_content/vendor .
 
 before_deploy:
-  - composer install --no-dev
   - zip -r 'HTML Attribute Content' html_attribute_content
 
 deploy:

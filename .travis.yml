@@ -1,0 +1,29 @@
+language: php
+
+php:
+  - 5.4
+  - 5.5
+  - 5.6
+  - 7.0
+
+install:
+  - composer install
+
+script:
+  - gravatar/vendor/bin/parallel-lint --exclude gravatar/vendor .
+
+before_deploy:
+  - composer install --no-dev
+  - zip -r 'HTML Attribute Content' html_attribute_content
+
+deploy:
+  provider: releases
+  api_key:
+    secure: fuLGULBdOuuFKh6kp+bfsxKCZU/MpWcW/dOdkbHehJ48XlSH+wIXp7bvwjsTiM66EFE4vKNkELOCunZ6UhnjhuCqq4EXlBsQ2U0k7SyB/MmF9QgdH+7fU7JD3FOmHc4cqeR6ETklbA2l+Un4Kvh0AkAL5j084P7xgwnOlXUi538=
+  file: "HTML Attribute Content.zip"
+  skip_cleanup: true
+  on:
+    php: 7.0
+    tags: true
+    condition: $TRAVIS_PULL_REQUEST = false
+    repo: EllisLab/HTML-Attribute-Content

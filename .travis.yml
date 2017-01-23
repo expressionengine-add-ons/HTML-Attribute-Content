@@ -20,7 +20,7 @@ before_deploy:
 deploy:
   provider: releases
   api_key:
-    secure: WXw3tQ4HFASBI6ZTvf/zCGTznzISs9JFHLMo0f7bIJ5DTFM2QGQDp+HEb7kMb5atcC5ncQ38xawmdGsgjxI4Hcck8PDKbr1B+hQlN/CbBY61beU8zudSurJwLl9HoPHHZAQORgzH1TZXh0gTEQmJEqjp4rrhM+chmi5wnfTbllA=
+    secure: aEhHKALak8GIvqlpiroAgbw86HaGmZHoy8lPEy55BPcwTX5siP9IQ1Kx657UNMQXWv17SHZFXakBJ0vCGOKKJjBmGwOki1K96rsoFA96VZiis8KA2hg4Anzd6ZuaMp87kSF9gEA0Wyq2zzf4OhEdMF19lLpjpkpgM9t75s6Bu4g=
   file: "HTML Attribute Content.zip"
   skip_cleanup: true
   on:

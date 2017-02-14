@@ -15,13 +15,13 @@ script:
 
 before_deploy:
   - rm -rf html_attribute_content/vendor
-  - zip -r 'HTML Attribute Content' html_attribute_content
+  - zip -r 'HTML-Attribute-Content' html_attribute_content
 
 deploy:
   provider: releases
   api_key:
     secure: Pph1DBuuRkSPFd0N/hJXgISMqMdinJv6/jXTOylGI3T4Ber8C5rurqzIAX/J2CaSn/SM61oAfElzEaMzIE4iqlQhI+ZeveL6S7FNq2SbWjCe2YTuYcukHScozbFQjl6VUXPEM0bOXUVjbGWSUTbyh54RWknX7PC3xBKIbsUSx6E=
-  file: "HTML Attribute Content.zip"
+  file: "HTML-Attribute-Content.zip"
   skip_cleanup: true
   on:
     php: 7.1

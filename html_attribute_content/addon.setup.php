@@ -5,7 +5,7 @@ return array(
 	'author_url'  => 'https://ellislab.com/',
 	'name'        => 'HTML Attribute Content',
 	'description' => 'Preps content for use inside an HTML tag attribute',
-	'version'     => '2.1.5',
+	'version'     => '2.1.6',
 	'namespace'   => 'EllisLabOS\HTMLAttributeContent',
 	'settings_exist' => FALSE
 );

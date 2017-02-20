@@ -20,11 +20,12 @@ before_deploy:
 deploy:
   provider: releases
   api_key:
-    secure: Pph1DBuuRkSPFd0N/hJXgISMqMdinJv6/jXTOylGI3T4Ber8C5rurqzIAX/J2CaSn/SM61oAfElzEaMzIE4iqlQhI+ZeveL6S7FNq2SbWjCe2YTuYcukHScozbFQjl6VUXPEM0bOXUVjbGWSUTbyh54RWknX7PC3xBKIbsUSx6E=
-  file: "HTML-Attribute-Content.zip"
+    secure: RurkzxLJMW4Z/FgnH0eslc8AlPL+VQiLNEYtNaAMuwqmZbpNC23z9eWQkhiF0411XcO6YvCsbsLOKLiJG8sa23TADoZakvhPZPh87UezcAmwN7wJsE5aZA4O6NwzzGgLZWhPTd2pv0flwxddHS3TBooAe96z7oheBVGSYghIJJE=
+  file: HTML-Attribute-Content.zip
   skip_cleanup: true
   on:
     php: 7.1
     tags: true
     condition: $TRAVIS_PULL_REQUEST = false
     repo: expressionengine-add-ons/HTML-Attribute-Content
+

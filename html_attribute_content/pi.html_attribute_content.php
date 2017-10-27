@@ -1,14 +1,14 @@
-<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php
+/**
+ * ExpressionEngine HTML Attribute Content Plugin (https://expressionengine.com)
+ *
+ * @link      https://github.com/EllisLab/Html-Attribute-Content
+ * @copyright Copyright (c) 2015, EllisLab, Inc. (https://ellislab.com)
+ * @license   https://opensource.org/licenses/MIT MIT
+ */
 
 /**
  * HTML Attribute Content plugin class
- *
- * @package		ExpressionEngine
- * @category	Plugin
- * @author		EllisLab Dev Team
- * @copyright	Copyright (c) 2015, EllisLab, Inc.
- * @license		https://opensource.org/licenses/MIT MIT
- * @link		https://github.com/EllisLab/Html-Attribute-Content
  */
 class Html_attribute_content {
 
@@ -21,33 +21,18 @@ class Html_attribute_content {
 	 **/
 	public function __construct()
 	{
-		$str = ee()->TMPL->tagdata;
-		$double_encode = get_bool_from_string(ee()->TMPL->fetch_param('double_encode', 'yes'));
-
-		// syntax highlighted code will be one long "word" and not summarizable
-
-		if (strpos($str, '<div class="codeblock">') !== FALSE)
+		$params = [];
+		foreach (['double_encode', 'end_char', 'limit', 'unicode_punctuation'] as $param)
 		{
-			$str = preg_replace('|<div class="codeblock">.*?</div>|is', '', $str);
-		}
-
-		$str = strip_tags($str);
-		$str = htmlspecialchars($str, ENT_QUOTES, 'UTF-8', $double_encode);
-
-		if (($limit = ee()->TMPL->fetch_param('limit')) !== FALSE)
-		{
-			ee()->load->helper('text');
-			$str = character_limiter($str, $limit);
-			$end_char = (ee()->TMPL->fetch_param('end_char'));
-
-			while (strlen($str) > $limit)
+			if (($val = ee()->TMPL->fetch_param($param)) !== FALSE)
 			{
-				$words = explode(' ', $str);
-				array_pop($words);
-				$str = implode(' ', $words).$end_char;
+				$params[$param] = $val;
 			}
 		}
 
-		$this->return_data = $str;
+		$this->return_data = (string) ee('Format')->make('Text', ee()->TMPL->tagdata)->attributeSafe($params);
 	}
 }
+// END CLASS
+
+// EOF

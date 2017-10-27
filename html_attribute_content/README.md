@@ -2,6 +2,12 @@
 
 HTML Attribute Content takes a string and preps it for use inside HTML tag attributes. You might find this handy when using content inside attributes of certain tags, like `<meta>` tags used by [Twitter Cards](https://dev.twitter.com/docs/cards).
 
+**NOTE: This add-on is largely not needed in ExpressionEngine 4. Most variables can use the `:attr_safe` modifier. This plugin can still be useful on arbitrary text in a template, from non-standard sources.**
+
+## Requirements
+
+- ExpressionEngine 4
+
 ## Usage
 
 ### `{exp:html_attribute_content}`
@@ -14,7 +20,7 @@ It strips tags, turns single and double quotes into entities, then optionally li
 
 ```
 {exp:html_attribute_content limit='200' end_char='&#8230;'}
-	content to make safe for use in a tag parameter
+    content to make safe for use in a tag parameter
 {/exp:html_attribute_content}
 ```
 
@@ -26,20 +32,33 @@ It strips tags, turns single and double quotes into entities, then optionally li
 
 The number of characters to limit the output to (keeps whole words).
 
-##### double_encode (optional, default='yes')
+##### double_encode (optional, default='no')
 
-`double_encode='no'`
+`double_encode='yes'`
 
 yes/no. Whether or not to double-encode character entities.
 
-##### end_char (optional)
+##### end_char (optional, default='&#8230;')
 
-`end_char='&#8230;'`
+`end_char='…'`
 
 A terminating character (or characters) to append to the string. The limit parameter takes this into consideration, so your final string will still
 be within the bounds of your specified limit.
 
+##### unicode_punctuation (optional, default='yes')
+
+`unicode_punctuation='yes'`
+
+Whether or not to use unicode punctuation characters instead of entities. Handy for things like meta tags, where HTML entities may not be parsed.
+
 ## Change Log
+
+### 3.0.0
+
+- Modified for ExpressionEngine 4
+- Switched to ExpressionEngine's `attributeSafe()` formatter for application consistency.
+    - **NOTE:** this may flip your `double_encode=` parameter setting, as the new default is to _not_ double encode.
+    - This also adds the `unicode_punctuation=` parameter
 
 ### 2.1.4
 
